@@ -18,3 +18,5 @@ class SignInLocators:
     SIGN_IN_BUTTON = (By.XPATH, "//div[@class='ow_right']")
     LOGIN_BACKGROUND = (By.ID, "floatbox_overlay")
     LOGIN_WINDOW_BOX = (By.CLASS_NAME, "floatbox_container")
+    JOIN_LINK = (By.XPATH, "//div[@class='ow_sign_up']/p[2]/a")
+

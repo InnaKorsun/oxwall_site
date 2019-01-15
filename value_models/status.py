@@ -1,4 +1,4 @@
-from value_models.user import User
+from oxwall_site.value_models.user import User
 from datetime import datetime
 
 

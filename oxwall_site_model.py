@@ -2,12 +2,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
-from locators.locator import InternalPageLocators, SignInLocators
+
 import time
 
-from page_objects.dashboard_page import DashboardPage
-from page_objects.main_page import MainPage
-from page_objects.signing_in_page import SignInPage
+from oxwall_site.page_objects.dashboard_page import DashboardPage
+from oxwall_site.page_objects.main_page import MainPage
+from oxwall_site.page_objects.signing_in_page import SignInPage
+from oxwall_site.page_objects.join_page import JoinPage
+from oxwall_site.locators.locator import InternalPageLocators, SignInLocators
 
 
 class OxwallSite:
@@ -22,6 +24,8 @@ class OxwallSite:
 
         self.wait = WebDriverWait(self.driver, 10)
         self.actions = ActionChains(self.driver)
+
+        self.join_page = JoinPage(self.driver)
 
 
 
@@ -58,7 +62,7 @@ class OxwallSite:
 
     def wait_until_new_status_appeared(self):
         # TODO You need to do smart explicit wait!!!
-        time.sleep(5)
+        time.sleep(3)
 
     def get_newsfeed_list(self):
         return self.driver.find_elements_by_class_name("ow_newsfeed_content")
@@ -68,3 +72,5 @@ class OxwallSite:
 
     def get_newsfeed_times(self):
         return self.driver.find_elements(By.CSS_SELECTOR, "div.ow_newsfeed_btns.ow_small.ow_remark.clearfix > a")
+
+

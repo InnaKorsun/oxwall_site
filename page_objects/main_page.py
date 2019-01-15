@@ -1,5 +1,5 @@
-from page_objects.internal_page import InternalPage
-from page_objects.signing_in_page import SignInPage
+from oxwall_site.page_objects.internal_page import InternalPage
+from oxwall_site.page_objects.signing_in_page import SignInPage
 
 
 class MainPage(InternalPage):

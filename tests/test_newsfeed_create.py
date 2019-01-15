@@ -1,4 +1,5 @@
 from oxwall_site_model import OxwallSite
+from selenium.webdriver.remote.webelement import WebElement
 from value_models.status import Status
 import pytest
 from data.status_data import status_data
@@ -15,9 +16,15 @@ def test_add_text_status(driver, signed_in_user, status_text):
     app.dash_page.wait_until_new_status_appeared()
     # new_status_list = app.dash_page.status_list
     new_status = app.dash_page.status_list[0]
+
     assert new_status.text == status.text
-    assert new_status.user == signed_in_user.real_name
+    #assert new_status.user == signed_in_user.real_name
     assert new_status.time == "within 1 minute"
+
+    #last_status =  app.dash_page.status_list[0]
+    ##last_status.click_to_elem()
+    #last_status.delete_last_status()
+    #app.driver.switch_to_alert().accept()
 
 
     # Verification that new status with this text appeared

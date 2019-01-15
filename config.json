@@ -1,0 +1,15 @@
+{
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "password": "12345",
+    "db": "oxwa857",
+    "port": 5306
+  },
+  "web": {
+    "admin": {
+      "username": "admin",
+      "password": "pass"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 from selenium.webdriver.support.expected_conditions import invisibility_of_element_located
 
-from page_objects.dashboard_page import DashboardPage
-from page_objects.page import Page, InputTextElement
-from locators.locator import SignInLocators
+from oxwall_site.page_objects.dashboard_page import DashboardPage
+from oxwall_site.page_objects.page import Page, InputTextElement
+from oxwall_site.locators.locator import SignInLocators
 
 
 class SignInPage(Page):
@@ -26,13 +26,8 @@ class SignInPage(Page):
     def is_this_page(self):
         return self.is_element_present(SignInLocators.LOGIN_WINDOW_BOX)
 
-    # def input_username(self, username):
-    #     self.username_field.clear()
-    #     self.username_field.send_keys(username)
-    #
-    # def input_password(self, password):
-    #     self.password_field.clear()
-    #     self.password_field.send_keys(password)
+    def click_to_join(self):
+        self.find_visible_element(SignInLocators.JOIN_LINK).click()
 
     def submit_form(self):
         self.sign_in_button.click()

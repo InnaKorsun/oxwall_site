@@ -40,9 +40,13 @@ class Page:
     def find_visible_element(self, locator):
         return self.wait.until(visibility_of_element_located(locator), "No visible element with {}".format(locator))
 
+
     def find_clickable_element(self, locator):
         return self.wait.until(element_to_be_clickable(locator))
 
     @property
     def current_url(self):
         return self.driver.current_url
+
+    def refresh_page(self):
+        self.driver.refresh()

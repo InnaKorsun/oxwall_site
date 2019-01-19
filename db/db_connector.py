@@ -26,14 +26,21 @@ class DBConnector:
     def create_user(self, user):
         with self.connection.cursor() as cursor:
             # Create a new record
-            sql = '''INSERT INTO `ow_base_user` (`username`, `email`, `password`, `joinIp`) 
-                         VALUES ("{}", "{}", "{}", {});'''
-            cursor.execute(sql.format(user.username, user.email, _our_hash(user.password), "21423532"))
+            sql = '''INSERT INTO `ow_base_user` (`username`, `email`, `password`) 
+                         VALUES ("{}", "{}", "{}");'''
+            cursor.execute(sql.format(user.username, user.email, _our_hash(user.password)))
 
         # connection is not autocommit by default. So you must commit to save
         # your changes.
-        print("here")
         self.connection.commit()
+        with self.connection.cursor() as cursor:
+            sql = """SELECT * FROM `oxwa857`.`ow_base_user` 
+                             WHERE `ow_base_user`.`username` = "{}";"""
+            cursor.execute(sql.format(user.username))
+            result = cursor.fetchone()
+        self.connection.commit()
+        print(result)
+        return User(id = result["id"],username=result["username"],email=result["email"])
 
     def get_users(self):
         with self.connection.cursor() as cursor:
@@ -64,9 +71,10 @@ class DBConnector:
             cursor.execute(sql)
             response = cursor.fetchone()
             data = json.loads(response["data"])
+
         self.connection.commit()
-        # print(data)
-        return Status(text=data["status"])
+        print(data["statusId"])
+        return Status(text=data["status"],id=data["statusId"])
 
     def count_status(self):
         with self.connection.cursor() as cursor:
@@ -78,6 +86,17 @@ class DBConnector:
         # print(cursor.fetchone())
         return cursor.fetchone()['COUNT(*)']
 
+    def delete_status_by_id(self,id):
+        """ delete status with """
+        with self.connection.cursor() as cursor:
+            sql = """DELETE FROM `oxwa857`.`ow_newsfeed_action` 
+                     WHERE `ow_newsfeed_action`.`entityId` = ("{}")
+                         """
+            cursor.execute(sql.format(id))
+        self.connection.commit()
+
+
+
 if __name__ == "__main__":
     config = {
         "host": "localhost",
@@ -88,9 +107,9 @@ if __name__ == "__main__":
         }
     db = DBConnector(config)
 
-    us = User("max_kreig2","pass",email="maxim@g.com")
+    us = User("max_kreig5","pass",email="maxi8@g.com")
+    st = Status(text="BDTest")
     print(db.count_status())
+    new_user = db.create_user(us)
 
-    db.create_user(us)
-    #print(db.get_users()[1])
-    #db.delete_user(us)
+

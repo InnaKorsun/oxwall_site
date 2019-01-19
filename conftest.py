@@ -45,7 +45,7 @@ def user(request, db):
     yield user
     db.delete_user(user)
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def admin():
     params = config["web"]["admin"]
     return User(**params, is_admin=True, real_name=params["username"].title())
@@ -64,6 +64,12 @@ def signed_in_user(driver, user, oxwall_app):
     oxwall_app.logout_as(user)
 
 @pytest.fixture(scope="session")
+def signed_as_admin(driver, admin, oxwall_app):
+    oxwall_app.login_as(admin)
+    yield admin
+    oxwall_app.logout_as(admin)
+
+@pytest.fixture(scope="session")
 def status_for_test(driver,signed_in_user,oxwall_app):
 
     status = Status(text="Status for test", user=signed_in_user)
@@ -71,7 +77,6 @@ def status_for_test(driver,signed_in_user,oxwall_app):
     oxwall_app.dash_page.status_text_field.input(status.text)
     oxwall_app.dash_page.send_button.click()
     oxwall_app.dash_page.wait_until_new_status_appeared()
-
 
 
 @pytest.fixture()

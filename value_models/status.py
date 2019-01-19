@@ -3,11 +3,12 @@ from datetime import datetime
 
 
 class Status:
-    def __init__(self, text="", user=None, photo_source=None):
+    def __init__(self, text="", user=None, photo_source=None,id=None):
         self.text = text
         self.user = user
         self.photo_source = photo_source
         self.time_created = datetime.now()
+        self.id = id
 
     def __str__(self):
         return 'Status of {} user with text: {}'.format(self.user, self.text)

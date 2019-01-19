@@ -1,7 +1,8 @@
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located, element_to_be_clickable, \
+    visibility_of_any_elements_located
 
 
 class InputTextElement:
@@ -43,6 +44,9 @@ class Page:
 
     def find_clickable_element(self, locator):
         return self.wait.until(element_to_be_clickable(locator))
+
+    def find_any_visibility_elements(self, locator):
+        return self.wait.until(visibility_of_any_elements_located(locator))
 
     @property
     def current_url(self):

@@ -1,30 +1,30 @@
-from oxwall_site_model import OxwallSite
+from oxwall_site.oxwall_site_model import OxwallSite
 from selenium.webdriver.remote.webelement import WebElement
-from value_models.status import Status
+from oxwall_site.value_models.status import Status
 import pytest
-from data.status_data import status_data
+from oxwall_site.data.status_data import status_data
 
 
-@pytest.mark.parametrize("status_text", status_data)
-def test_add_text_status(driver, signed_in_user, status_text):
-    status = Status(text=status_text, user=signed_in_user)
-    app = OxwallSite(driver)
-    # old_status_list = app.dash_page.status_list
-    assert app.dash_page.status_text_field.placeholder == "What’s happening?"
-    app.dash_page.status_text_field.input(status.text)
-    app.dash_page.send_button.click()
-    app.dash_page.wait_until_new_status_appeared()
-    # new_status_list = app.dash_page.status_list
-    new_status = app.dash_page.status_list[0]
+@pytest.mark.parametrize("status_text",status_data)
+def test_add_text_status(driver, signed_as_admin , oxwall_app, status_text,db):
+
+    status = Status(text=status_text, user=signed_as_admin)
+
+
+    assert oxwall_app.dash_page.status_text_field.placeholder == "What’s happening?"
+
+    oxwall_app.dash_page.status_text_field.input(status.text)
+    oxwall_app.dash_page.send_button.click()
+    oxwall_app.dash_page.wait_until_new_status_appeared()
+    new_status = oxwall_app.dash_page.status_list[0]
 
     assert new_status.text == status.text
-    #assert new_status.user == signed_in_user.real_name
     assert new_status.time == "within 1 minute"
+    status_from_db = db.get_last_text_status()
 
-    #last_status =  app.dash_page.status_list[0]
-    ##last_status.click_to_elem()
-    #last_status.delete_last_status()
-    #app.driver.switch_to_alert().accept()
+    assert status.text == status_from_db.text
+    db.delete_status_by_id(status_from_db.id)
+
 
 
     # Verification that new status with this text appeared

@@ -1,9 +1,11 @@
 class User:
-    def __init__(self, username="", password="", real_name="", email=""):
+    def __init__(self, username="", password="", real_name="", email="",is_admin=False,id=None):
         self.username = username
         self.password = password
         self.real_name = real_name
         self.email = email
+        self.is_admin = is_admin
+        self.id = id
 
     #def __str__(self):
     #    return "User: username={}, {}".format(

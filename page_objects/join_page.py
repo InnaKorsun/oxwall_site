@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.expected_conditions import visibility_of_element_located
+from selenium.webdriver.support.expected_conditions import visibility_of_element_located, \
+    visibility_of_any_elements_located
 from selenium.webdriver.support.ui import Select
 import pymysql
 from oxwall_site.page_objects.page import InputTextElement, Page
@@ -10,7 +11,8 @@ class JoinPage(Page):
     #USERNAME_FIELD = (By.XPATH,"//input[contains(@id,'input')]")
     #USERNAME_FIELD = (By.CLASS_NAME,'ow_username_validator')
     #USERNAME_FIELD = (By.XPATH,"//input[@class='ow_username_validator']")[2]
-    USERNAME_FIELD = (By.XPATH,'//td[contains(@class,"ow_alt1 ow_value")]//input[contains(@class,"ow_username_validator")]')
+    #USERNAME_FIELD = (By.XPATH,'//td[contains(@class,"ow_alt1 ow_value")]//input[contains(@class,"ow_username_validator")]')
+    USERNAME_FIELD = (By.XPATH,'//input[@class="ow_username_validator"]')
     #USERNAME_FIELD = (By.XPATH, '//td[contains(@class,"ow_alt1 ow_value")]')
     EMAIL_FIELD = (By.NAME,'email')
     PASSWORD_FIELD = (By.XPATH, '//input[@name="password"]')
@@ -31,9 +33,9 @@ class JoinPage(Page):
     def username_field(self):
 
         a =  self.driver.find_elements(*self.USERNAME_FIELD)
-        #self.wait.until(visibility_of_element_located(self.USERNAME_FIELD))
-        print(a[1].is_displayed())
-        return InputTextElement(a[1])
+        #self.wait.until(visibility_of_any_elements_located(*self.USERNAME_FIELD))
+        print(a[2].is_displayed())
+        return InputTextElement(a[2])
 
     @property
     def email_field(self):
@@ -87,7 +89,6 @@ class JoinPage(Page):
         import time
         time.sleep(3)
         self.wait_join_page()
-        print("HERE")
         self.username_field.input(user_info["username"])
 
         #self.username_field.send_keys(user_info["username"])

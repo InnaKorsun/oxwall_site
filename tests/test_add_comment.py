@@ -8,13 +8,12 @@ from data.status_data import status_data
 from oxwall_site.page_objects.dashboard_page import StatusElement
 
 
-def test_add_text_status(driver, signed_in_user,oxwall_app,status_for_test):
+def test_add_text_status(driver, signed_in_user, oxwall_app,status_for_test):
 
      oxwall_app.dash_page.wait_until_new_status_appeared()
      status_element = oxwall_app.dash_page.status_list[0]
      oxwall_app.dash_page.wait_until_new_status_appeared()
-     #print(status_element.text)
-     #print(status_element.time)
+
 
      status_element.add_comment("lilu")
      oxwall_app.dash_page.wait_until_new_status_appeared()

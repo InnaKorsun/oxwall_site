@@ -1,8 +1,8 @@
-from oxwall_site.oxwall_site_model import OxwallSite
+from oxwall_site_model import OxwallSite
 from selenium.webdriver.remote.webelement import WebElement
-from oxwall_site.value_models.status import Status
+from value_models.status import Status
 import pytest
-from oxwall_site.data.status_data import status_data
+from data.status_data import status_data
 
 
 @pytest.mark.parametrize("status_text",status_data)

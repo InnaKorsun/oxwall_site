@@ -1,7 +1,7 @@
-from oxwall_site.oxwall_site_model import OxwallSite
-from oxwall_site.value_models.status import Status
+from oxwall_site_model import OxwallSite
+from value_models.status import Status
 import pytest
-from oxwall_site.data.status_data import status_data
+from data.status_data import status_data
 
 user_info = dict(username="Lola", email="lola_dir@gmail.com", password="12345",
                      real_name="Lola Kim", gender="female") #Birthday="01.01.1990")

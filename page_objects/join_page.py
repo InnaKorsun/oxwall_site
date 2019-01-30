@@ -3,7 +3,7 @@ from selenium.webdriver.support.expected_conditions import visibility_of_element
     visibility_of_any_elements_located
 from selenium.webdriver.support.ui import Select
 import pymysql
-from oxwall_site.page_objects.page import InputTextElement, Page
+from page_objects.page import InputTextElement, Page
 
 
 class JoinPage(Page):

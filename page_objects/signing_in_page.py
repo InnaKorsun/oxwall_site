@@ -1,8 +1,8 @@
 from selenium.webdriver.support.expected_conditions import invisibility_of_element_located
 
-from oxwall_site.page_objects.dashboard_page import DashboardPage
-from oxwall_site.page_objects.page import Page, InputTextElement
-from oxwall_site.locators.locator import SignInLocators
+from page_objects.dashboard_page import DashboardPage
+from page_objects.page import Page, InputTextElement
+from locators.locator import SignInLocators
 
 
 class SignInPage(Page):

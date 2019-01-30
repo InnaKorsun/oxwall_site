@@ -3,11 +3,11 @@ import pytest
 import os.path
 from selenium import webdriver
 
-from oxwall_site.oxwall_site_model import OxwallSite
-from oxwall_site.value_models.user import User
+from oxwall_site_model import OxwallSite
+from value_models.user import User
 
-from oxwall_site.db.db_connector import DBConnector
-from oxwall_site.value_models.status import Status
+from db.db_connector import DBConnector
+from value_models.status import Status
 
 
 

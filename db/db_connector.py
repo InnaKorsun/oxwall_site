@@ -2,8 +2,8 @@ import json
 
 import pymysql
 
-from oxwall_site.value_models.status import Status
-from oxwall_site.value_models.user import User
+from value_models.status import Status
+from value_models.user import User
 
 def _our_hash(password):
     return {

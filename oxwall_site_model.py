@@ -5,11 +5,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import time
 
-from oxwall_site.page_objects.dashboard_page import DashboardPage
-from oxwall_site.page_objects.main_page import MainPage
-from oxwall_site.page_objects.signing_in_page import SignInPage
-from oxwall_site.page_objects.join_page import JoinPage
-from oxwall_site.locators.locator import InternalPageLocators, SignInLocators
+from page_objects.dashboard_page import DashboardPage
+from page_objects.main_page import MainPage
+from page_objects.signing_in_page import SignInPage
+from page_objects.join_page import JoinPage
+from locators.locator import InternalPageLocators, SignInLocators
 
 
 class OxwallSite:

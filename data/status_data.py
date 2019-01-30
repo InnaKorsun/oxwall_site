@@ -2,7 +2,7 @@ import json
 import os
 import random
 import string
-from oxwall_site.conftest import PROJECT_DIR
+from conftest import PROJECT_DIR
 
 with open(os.path.join(PROJECT_DIR, "data", "status_data.json"), encoding="utf8") as f:
     status_data = json.load(f)

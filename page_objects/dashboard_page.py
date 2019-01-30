@@ -3,9 +3,9 @@ import time
 
 from selenium.webdriver.common.by import By
 
-from oxwall_site.page_objects.custom_expected_condition.expected_condition import amount_of_element_located
-from oxwall_site.page_objects.internal_page import InternalPage
-from oxwall_site.page_objects.page import InputTextElement
+from page_objects.custom_expected_condition.expected_condition import amount_of_element_located
+from page_objects.internal_page import InternalPage
+from page_objects.page import InputTextElement
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 

@@ -1,6 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
-from oxwall_site.locators.locator import InternalPageLocators
-from oxwall_site.page_objects.page import Page
+from locators.locator import InternalPageLocators
+from page_objects.page import Page
 
 
 class InternalPage(Page):

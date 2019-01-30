@@ -5,6 +5,7 @@ import pymysql
 from value_models.status import Status
 from value_models.user import User
 
+
 def _our_hash(password):
     return {
         #"pass": "bf6116af8e4b3e83a7646640590b9d5f5c95b06bf7eebf6c424487ff39293833",

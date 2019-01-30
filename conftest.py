@@ -4,9 +4,9 @@ import os.path
 from selenium import webdriver
 
 from .value_models.user import User
-from db.db_connector import DBConnector
-from value_models.status import Status
-from oxwall_site_model import OxwallSite
+from .db.db_connector import DBConnector
+from .value_models.status import Status
+from .oxwall_site_model import OxwallSite
 
 @pytest.fixture(scope='session')
 def driver():

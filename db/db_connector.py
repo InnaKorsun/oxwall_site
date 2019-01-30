@@ -2,8 +2,9 @@ import json
 
 import pymysql
 
-from .value_models.status import Status
-from .value_models.user import User
+#from value_models.status import Status
+import value_models.status
+import value_models.user
 
 def _our_hash(password):
     return {
@@ -40,7 +41,7 @@ class DBConnector:
             result = cursor.fetchone()
         self.connection.commit()
         print(result)
-        return User(id = result["id"],username=result["username"],email=result["email"])
+        return value_models.user.User(id = result["id"], username=result["username"], email=result["email"])
 
     def get_users(self):
         with self.connection.cursor() as cursor:
@@ -49,7 +50,7 @@ class DBConnector:
             cursor.execute(sql)
             result = cursor.fetchall()
         self.connection.commit()
-        return [User(**u) for u in result]
+        return [value_models.user.User(**u) for u in result]
 
     def delete_user(self, user):
         with self.connection.cursor() as cursor:
@@ -107,7 +108,7 @@ if __name__ == "__main__":
         }
     db = DBConnector(config)
 
-    us = User("max_kreig5","pass",email="maxi8@g.com")
+    us = value_models.user.User("max_kreig5", "pass", email="maxi8@g.com")
     st = Status(text="BDTest")
     print(db.count_status())
     new_user = db.create_user(us)

@@ -1,6 +1,6 @@
 {
-  'db': {
-    "host": "localhost",
+  "db": {
+    'host': 'localhost',
     "user": "root",
     "password": "12345",
     "db": "oxwa857",

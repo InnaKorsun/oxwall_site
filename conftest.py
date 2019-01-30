@@ -22,7 +22,7 @@ def driver():
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(PROJECT_DIR, "config.json")) as f:
+with open(os.path.join(PROJECT_DIR, 'config.json')) as f:
     config = json.load(f)
 
 

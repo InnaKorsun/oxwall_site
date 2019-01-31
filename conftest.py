@@ -22,9 +22,23 @@ def driver():
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-with open(os.path.join(PROJECT_DIR, "config.json")) as f:
-    config = json.load(f)
-
+#with open(os.path.join(PROJECT_DIR, 'config.json')) as f:
+#    config = json.load(f)
+config = {
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "password": "12345",
+    "db": "oxwa857",
+    "port": 5306
+  },
+  "web": {
+    "admin": {
+      "username": "admin",
+      "password": "pass"
+    }
+  }
+}
 
 @pytest.fixture(scope="session")
 def db():

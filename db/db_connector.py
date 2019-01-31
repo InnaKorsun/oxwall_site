@@ -43,7 +43,7 @@ class DBConnector:
             result = cursor.fetchone()
         self.connection.commit()
         print(result)
-        return value_models.user.User(id = result["id"], username=result["username"], email=result["email"])
+        return User(id = result["id"], username=result["username"], email=result["email"])
 
     def get_users(self):
         with self.connection.cursor() as cursor:
@@ -52,7 +52,7 @@ class DBConnector:
             cursor.execute(sql)
             result = cursor.fetchall()
         self.connection.commit()
-        return [value_models.user.User(**u) for u in result]
+        return [User(**u) for u in result]
 
     def delete_user(self, user):
         with self.connection.cursor() as cursor:
@@ -110,7 +110,7 @@ if __name__ == "__main__":
         }
     db = DBConnector(config)
 
-    us = value_models.user.User("max_kreig5", "pass", email="maxi8@g.com")
+    us = User("max_kreig5", "pass", email="maxi8@g.com")
     st = Status(text="BDTest")
     print(db.count_status())
     new_user = db.create_user(us)

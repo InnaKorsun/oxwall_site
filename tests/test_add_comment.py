@@ -7,7 +7,7 @@ from data.status_data import status_data
 #@pytest.mark.parametrize("status_text", status_data)
 from page_objects.dashboard_page import StatusElement
 
-
+@pytest.mark.skip("user should contain full info")
 def test_add_text_status(driver, signed_in_user, oxwall_app,status_for_test):
 
      oxwall_app.dash_page.wait_until_new_status_appeared()

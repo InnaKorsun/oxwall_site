@@ -114,5 +114,6 @@ if __name__ == "__main__":
     st = Status(text="BDTest")
     print(db.count_status())
     new_user = db.create_user(us)
+    db.delete_user(new_user)
 
 

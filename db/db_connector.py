@@ -113,6 +113,7 @@ if __name__ == "__main__":
     us = User("max_kreig5", "pass", email="maxi8@g.com")
     st = Status(text="BDTest")
     print(db.count_status())
+    print(type(db.count_status()))
     new_user = db.create_user(us)
     db.delete_user(new_user)
 

@@ -3,9 +3,10 @@ from value_models.status import Status
 import pytest
 from data.status_data import status_data
 
-user_info = dict(username="Lola", email="lola_dir@gmail.com", password="12345",
-                     real_name="Lola Kim", gender="female") #Birthday="01.01.1990")
-@pytest.mark.skip("doesnt work")
+user_info = dict(username="inna_user", email="lola_director@gmail.com", password="12345",
+                     real_name="Inna User", gender="male", birthday = ("1","3","1990"))
+#@pytest.mark.skip("doesnt work")
+
 def test_join_user(driver,oxwall_app):
 
     oxwall_app.main_page.sign_in_click()
@@ -13,5 +14,5 @@ def test_join_user(driver,oxwall_app):
     oxwall_app.wait_until_new_status_appeared()
 
     oxwall_app.join_page.fill_in_join_form(user_info)
-    print("ok")
+
 

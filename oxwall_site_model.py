@@ -45,6 +45,7 @@ class OxwallSite:
         wait.until(EC.invisibility_of_element_located(SignInLocators.LOGIN_BACKGROUND))
 
     def logout_as(self, user):
+
         menu = self.driver.find_element(*InternalPageLocators.USER_MENU)
         self.actions.move_to_element(menu).perform()
         self.driver.find_element(*InternalPageLocators.SIGN_OUT_LINK).click()

@@ -46,7 +46,8 @@ class Page:
         return self.wait.until(element_to_be_clickable(locator))
 
     def find_any_visibility_elements(self, locator):
-        return self.wait.until(visibility_of_any_elements_located(locator))
+         return self.wait.until(visibility_of_any_elements_located(*locator))
+
 
     @property
     def current_url(self):

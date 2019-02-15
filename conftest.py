@@ -8,7 +8,7 @@ from db.db_connector import DBConnector
 from value_models.status import Status
 from oxwall_site_model import OxwallSite
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def driver():
     # Open browser driver settings
     driver = webdriver.Chrome()
@@ -58,6 +58,9 @@ def user(request, db):
     yield user
     db.delete_user(user)
 
+@pytest.fixture
+def user_one():
+    return User(username="caren_bigl",password="12345",is_admin=False,real_name="Caren")
 
 @pytest.fixture(scope="session")
 def admin():
@@ -65,13 +68,13 @@ def admin():
     return User(**params, is_admin=True, real_name=params["username"].title())
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def oxwall_app(driver):
     app = OxwallSite(driver)
     return app
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def signed_in_user(driver, user, oxwall_app):
     oxwall_app.login_as(user)
     yield user

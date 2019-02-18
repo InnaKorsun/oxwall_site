@@ -3,13 +3,15 @@ from selenium.webdriver.remote.webelement import WebElement
 from value_models.status import Status
 import pytest
 from data.status_data import status_data
+import allure
 
 #pytest.mark.skip("doent work teardown")
 @pytest.mark.parametrize("status_text",status_data)
+@allure.story("Add NEWS")
+@allure.feature("CRUD")
 def test_add_text_status(driver, signed_as_admin , oxwall_app, status_text,db):
 
     status = Status(text=status_text, user=signed_as_admin)
-
 
     assert oxwall_app.dash_page.status_text_field.placeholder == "What’s happening?"
 
@@ -24,6 +26,4 @@ def test_add_text_status(driver, signed_as_admin , oxwall_app, status_text,db):
 
     assert status.text == status_from_db.text
     db.delete_status_by_id(status_from_db.id)
-
-
 

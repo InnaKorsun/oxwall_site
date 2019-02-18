@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -27,8 +28,7 @@ class OxwallSite:
 
         self.join_page = JoinPage(self.driver)
 
-
-
+    @allure.step(f"Login as {user.username}")
     def login_as(self, user):
         """ Login to Oxwall site by user"""
         driver = self.driver
@@ -44,6 +44,7 @@ class OxwallSite:
         wait = WebDriverWait(driver, 5)
         wait.until(EC.invisibility_of_element_located(SignInLocators.LOGIN_BACKGROUND))
 
+    @allure.step(f"Log out as {user.username}")
     def logout_as(self, user):
 
         menu = self.driver.find_element(*InternalPageLocators.USER_MENU)

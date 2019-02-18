@@ -81,7 +81,7 @@ def signed_in_user(driver, user, oxwall_app):
     oxwall_app.logout_as(user)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def signed_as_admin(driver, admin, oxwall_app):
     oxwall_app.login_as(admin)
     yield admin

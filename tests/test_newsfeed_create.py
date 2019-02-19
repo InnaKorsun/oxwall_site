@@ -4,7 +4,7 @@ from value_models.status import Status
 import pytest
 from data.status_data import status_data
 
-#pytest.mark.skip("doent work teardown")
+pytest.mark.skip("doent work teardown")
 @pytest.mark.parametrize("status_text",status_data)
 def test_add_text_status(driver, signed_as_admin , oxwall_app, status_text,db):
 

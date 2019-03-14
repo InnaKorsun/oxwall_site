@@ -48,4 +48,4 @@ def ch():
 print(17//10)
 print(14/10)
 print(14%10)
-print("It should be deketed")
+#print("It should be deketed")

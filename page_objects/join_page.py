@@ -62,7 +62,7 @@ class JoinPage(Page):
 
     @property
     def gender_male(self):
-        male = self.driver.find_visible_elements(*self.GENDER_MALE)
+        male = self.driver.find_elements(*self.GENDER_MALE)
         for i in male:
             if i.is_displayed():
                 i.click()

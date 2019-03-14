@@ -15,6 +15,7 @@ def test_add_text_status(driver, signed_as_admin , oxwall_app, status_text,db):
     with allure.step("Assert to go main page"):
         assert oxwall_app.dash_page.status_text_field.placeholder == "What’s happening?"
 
+
     oxwall_app.dash_page.status_text_field.input(status.text)
     oxwall_app.dash_page.send_button.click()
     oxwall_app.dash_page.wait_until_new_status_appeared()

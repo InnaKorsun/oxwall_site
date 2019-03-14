@@ -102,3 +102,4 @@ def logout(driver, oxwall_app):
     yield
     # app = OxwallSite(driver)
     oxwall_app.dash_page.sign_out()
+

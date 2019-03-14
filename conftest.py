@@ -88,7 +88,7 @@ def signed_as_admin(driver, admin, oxwall_app):
     oxwall_app.logout_as(admin)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture
 def status_for_test(driver, signed_in_user, oxwall_app):
     status = Status(text="Status for test", user=signed_in_user)
 

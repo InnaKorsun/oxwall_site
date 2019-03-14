@@ -16,7 +16,6 @@ from locators.locator import InternalPageLocators, SignInLocators
 class OxwallSite:
     def __init__(self, driver):
         # Open Oxwall site
-        #test
         self.driver = driver
         self.driver.get('http://127.0.0.1/oxwall/')
 

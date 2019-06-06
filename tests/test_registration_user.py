@@ -3,8 +3,8 @@ from value_models.status import Status
 import pytest
 from data.status_data import status_data
 
-user_info = dict(username="inna_user", email="lola_director@gmail.com", password="12345",
-                     real_name="Inna User", gender="male", birthday = ("1","3","1990"))
+user_info = dict(username="inna_solo", email="inna_director@gmail.com", password="12345",
+                     real_name="In Solo", gender="male", birthday = ("1","3","1990"))
 #@pytest.mark.skip("doesnt work")
 
 def test_join_user(driver,oxwall_app):

@@ -1,7 +1,7 @@
 import pytest
 from oxwall_site_model import OxwallSite
 
-@pytest.mark.skip("doent work teardown")
+#@pytest.mark.skip("doent work teardown")
 def test_login_using_page_object(driver, signed_in_user,user):
 
     app = OxwallSite(driver)

@@ -53,11 +53,16 @@ class JoinPage(Page):
 
     @property
     def real_name_field(self):
-        a = self.driver.find_elements(*self.REAL_NAME)
-        #for i in a:
-        #    if i.is_displayed():
-        #        return InputTextElement(i)
-        return InputTextElement(a[5])
+        all_elem = self.driver.find_elements(*self.REAL_NAME)
+        visible_elem = []
+        for i in all_elem:
+            if i.is_displayed():
+                print("here real name")
+                visible_elem.append(i)
+        v = len(visible_elem)-1
+        return InputTextElement(visible_elem[v])
+
+
 
 
     @property
@@ -81,7 +86,7 @@ class JoinPage(Page):
         select_day = self.driver.find_elements(*self.DAY_BIRTHDAY)
         for i in select_day:
             if i.is_displayed():
-                print("here")
+                print("here day")
                 return Select(i)
 
     @property
@@ -89,7 +94,7 @@ class JoinPage(Page):
         select_day = self.driver.find_elements(*self.MONTH_BIRTH)
         for i in select_day:
             if i.is_displayed():
-                print("here")
+                print("here month")
                 return Select(i)
 
     @property
@@ -97,7 +102,7 @@ class JoinPage(Page):
         select_day = self.driver.find_elements(*self.YEAR_BIRTH)
         for i in select_day:
             if i.is_displayed():
-                print("here")
+                print("here year")
                 return Select(i)
 
     @property

@@ -49,3 +49,20 @@ print(17//10)
 print(14/10)
 print(14%10)
 print("It should be deketed")
+def fizz ():
+    for i in range(1,101,1):
+        if i%3==0 and i%5==0:
+            print("FIZZ BUZZ")
+        if i%3==0:
+            print("FIZZ")
+        if i%5==0:
+            print("BUZZ")
+        else:
+            print(i)
+#fizz()
+s = "inna"
+v = "inna"
+#if s==v:
+#    print("Equla")
+print(s+v)
+print(1+s)

@@ -25,7 +25,6 @@ class StatusElement():
     COMMENT_ITEM_FULL = (By.XPATH, "//li[contains(@id, 'action-feed')][1]/div[1]/div[2]/div[3])")
 
 
-
     def __init__(self, webelement):
         self.webelement = webelement
 
@@ -89,6 +88,7 @@ class StatusElement():
     def click_to_elem(self):
         self.click()
 
+
 class CommentToNewsfeed:
 
     COMMENT_TEXT = (By.XPATH, "//div[@class ='ow_comments_content ow_smallmargin']")
@@ -110,11 +110,15 @@ class DashboardPage(InternalPage):
     STATUS_BOX = (By.XPATH, "//li[contains(@id, 'action-feed')]")
 
     COMMENT_ITEM = (By.XPATH, '//div[@class ="comments_list_cont"]')
-
+    NEW_USER_TEXT = (By.XPATH,'//div[contains(@class, "ow_newsfeed_string ow_small ow_smallmargin")]/a')
 
 
     def is_this_page(self):
         return self.active_menu.text == "DASHBOARD"
+
+    @property
+    def text_status_new_user(self):
+        return self.find_visible_element(self.NEW_USER_TEXT).text
 
     @property
     def status_text_field(self):

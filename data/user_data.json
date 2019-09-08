@@ -2,7 +2,9 @@
     {
         "username": "max_kreig",
         "password": "pass",
-        "email": "s@s.com"
+        "email": "s@s.com",
+        "real_name": "Max_K",
+        "gender": "male"
 
     },
     {

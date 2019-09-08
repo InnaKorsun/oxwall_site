@@ -59,8 +59,8 @@ def user(request, db):
     db.delete_user(user)
 
 @pytest.fixture
-def user_one():
-    return User(username="caren_bigl",password="12345",is_admin=False,real_name="Caren")
+def user_full_info (db):
+    return db.get_user_by_id(103)
 
 @pytest.fixture(scope="session")
 def admin():
@@ -75,10 +75,10 @@ def oxwall_app(driver):
 
 
 @pytest.fixture
-def signed_in_user(driver, user, oxwall_app):
-    oxwall_app.login_as(user)
-    yield user
-    oxwall_app.logout_as(user)
+def signed_in_user(driver, user_full_info, oxwall_app):
+    oxwall_app.login_as(user_full_info)
+    yield user_full_info
+    oxwall_app.logout_as(user_full_info)
 
 
 @pytest.fixture

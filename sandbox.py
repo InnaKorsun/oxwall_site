@@ -138,4 +138,3 @@ wor = Worker("inna korsun",12)
 print(wor.lastName())
 x=3
 print(repr(w))
-print("sandbox")

@@ -303,5 +303,5 @@ def zad_23():
 s="Inna"
 s2='Inna'
 print(s is s2)
-print("Sandbox2")
-print("Additional text for commit")
+
+print("Additional text for commit try 2")

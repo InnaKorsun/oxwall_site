@@ -304,4 +304,8 @@ s="Inna"
 s2='Inna'
 print(s is s2)
 
+<<<<<<< HEAD
 print("Additional text for commit try 2")
+=======
+print("Additional text for commit")
+>>>>>>> 85fd47c07a61bc9a8cd18a87b2afd477831eceb2

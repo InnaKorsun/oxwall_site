@@ -304,5 +304,5 @@ s="Inna"
 s2='Inna'
 print(s is s2)
 
-print("Aloo")
+print("Aloo and")
 print("Additional text for commit try 2 try 3 try4")

@@ -1,10 +1,9 @@
 [
     {
         "username": "max_kreig",
-        "password": "pass",
+        "password": "test",
         "email": "s@s.com",
-        "real_name": "Max_K",
-        "gender": "male"
+        "real_name": "Max_K"
 
     },
     {

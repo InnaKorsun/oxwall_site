@@ -43,7 +43,7 @@ class DBConnector:
             result = cursor.fetchone()
         self.connection.commit()
         print(result)
-        return User(id = result["id"], username=result["username"], email=result["email"])
+        return User(username=result["username"], email=result["email"])
 
     def get_users(self):
         with self.connection.cursor() as cursor:

@@ -105,9 +105,15 @@ def file_tst2(file_name):
         with open ('text2.txt', 'w') as file_w:
             file_w.write(str(len(s)))
 
-file_tst2("text.txt")
+#file_tst2("text.txt")
 def t_2():
     d=["i","n","n"]
 
     print(s)
-t_2()
+#t_2()
+def tst_3():
+   l1=[1,2,3,4]
+   l2=[3,6,7,8]
+   l3=list(filter((lambda x:x==3),l1))
+   print(l3)
+tst_3()

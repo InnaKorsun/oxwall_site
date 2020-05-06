@@ -60,7 +60,7 @@ def user(request, db):
 
 @pytest.fixture
 def user_full_info (db):
-    return db.get_user_by_id(103)
+    return db.get_user_by_id(141)
 
 @pytest.fixture(scope="session")
 def admin():
@@ -75,11 +75,16 @@ def oxwall_app(driver):
 
 
 @pytest.fixture
-def signed_in_user(driver, user_full_info, oxwall_app):
+def signed_in_user(driver, user, oxwall_app):
+    oxwall_app.login_as(user)
+    yield user
+    oxwall_app.logout_as(user)
+
+@pytest.fixture
+def signed_in_predefined_user(driver, user_full_info, oxwall_app):
     oxwall_app.login_as(user_full_info)
     yield user_full_info
     oxwall_app.logout_as(user_full_info)
-
 
 @pytest.fixture
 def signed_as_admin(driver, admin, oxwall_app):

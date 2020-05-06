@@ -17,4 +17,4 @@ class User:
 
 if __name__ == "__main__":
     user = User("Masha", "Pupkin")
-    print(user)
+    print(user.username)

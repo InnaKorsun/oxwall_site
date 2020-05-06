@@ -7,7 +7,7 @@ from data.status_data import status_data
 #Test to add newsfeed
 #@pytest.mark.skip("doent work teardown")
 @pytest.mark.parametrize("status_text",status_data)
-def test_add_text_status(oxwall_app,db,user_full_info ,signed_in_user,status_text ):
+def test_add_text_status(oxwall_app,db, signed_in_predefined_user,user_full_info,status_text ):
 
     #create test status (text present in status_data.json)
     status = Status(text=status_text, user=user_full_info.username)

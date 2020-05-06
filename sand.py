@@ -120,4 +120,7 @@ def tst_3():
 tst_3()
 print("Hello world!")
 print("Cherry pick")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 485e277... Cherry-pick2

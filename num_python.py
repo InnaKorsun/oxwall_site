@@ -13,4 +13,3 @@ import pandas as pd
 print("Hello world")
 print("2")
 print ("Stash")
-print("Add commit")

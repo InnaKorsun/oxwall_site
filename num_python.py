@@ -11,4 +11,3 @@ print(a.var())
 import pandas as pd
 #df = pd.read_csv('../../data/telecom_churn.csv')
 print("Hello world")
-print("3")

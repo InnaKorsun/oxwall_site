@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Подсчитать частоту повторов каждого уникального слова в файле:
 def count_word(filename):
     import string
@@ -117,3 +118,6 @@ def tst_3():
    l3=list(filter((lambda x:x==3),l1))
    print(l3)
 tst_3()
+print("Hello world!")
+print("Cherry pick")
+

@@ -12,7 +12,7 @@ glob2==0.6
 greenlet==0.4.15
 html-testRunner==1.1.2
 idna==2.8
-Jinja2==2.9.5
+Jinja2==2.11.3
 Mako==1.0.7
 MarkupSafe==1.0
 mimesis==3.2.0

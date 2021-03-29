@@ -22,7 +22,7 @@ parse==1.11.1
 parse-type==0.4.2
 pluggy==0.8.0
 py==1.7.0
-Pygments==2.2.0
+Pygments==2.7.4
 PyMySQL==0.9.3
 pytest==4.0.1
 pytest-base-url==1.4.1

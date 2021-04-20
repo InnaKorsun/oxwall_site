@@ -21,7 +21,7 @@ Naked==0.1.31
 parse==1.11.1
 parse-type==0.4.2
 pluggy==0.8.0
-py==1.7.0
+py==1.10.0
 Pygments==2.2.0
 PyMySQL==0.9.3
 pytest==4.0.1

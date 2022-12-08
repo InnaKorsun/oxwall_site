@@ -4,7 +4,7 @@ atomicwrites==1.2.1
 attrs==18.2.0
 blessings==1.7
 bpython==0.17.1
-certifi==2018.11.29
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.1
 curtsies==0.3.0
